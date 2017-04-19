@@ -1,7 +1,7 @@
 # Faspay Payment Gateway Package for Laravel 5
 
 Use Faspay as your payment gateway for your project? Then this package is for you.
-This is a laravel package to communicate with Faspay Payment Gateway API (currently only support DEBIT API)
+This is a laravel package to communicate with [Faspay Payment Gateway API](https://mediaindonusa.com)  (currently only support DEBIT API)
 
 ## Installation
 
@@ -21,6 +21,8 @@ Also, add the `Faspay` and `Payment` facade to the `aliases` array in your `app`
 Finally publish the config file:
 
     php artisan vendor:publish --provider="Rick20\Faspay\FaspayServiceProvider"
+
+and change `merchant_id`, `merchant_name`, `user_id`, and `password` in the `config/faspay.php` with yours.
 
 ## How To Use
 
@@ -107,7 +109,7 @@ Route::get('/callback-notif', function(\Illuminate\Http\Request $request) {
 });
 ```
 
-To generate a custom billing code, you can create a class that implements BillingProfileInterface, for example:
+To generate a custom billing number/code, you can create a class that implements BillingProfileInterface, for example:
 
 ```php
 class TopupBillingProfile implements BillingProfileInterface
@@ -128,4 +130,7 @@ and then pass it as a second argument of `registerPayment()` method.
 
 ## Bugs & Improvements
 
-Feel free to report me any bug you found.
+This package is far from perfect.
+It doesn't support BCA KlikPay yet.
+It doesn't support Faspay Credit API also.
+Feel free to report me any bug you found or send me pull requests.
